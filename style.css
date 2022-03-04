@@ -14,14 +14,13 @@ body {
     background-color: #99AAB5;
     padding: 1rem;
     margin: 1rem;
-    align-items: flex-start;
+
 }
 
 
 #header {
     display: flex;
     justify-content: space-between;
-    gap: 4.5vw;
 }
 h5 {
     font-weight: bold;
