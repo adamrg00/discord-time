@@ -1,0 +1,54 @@
+body {
+    font-family: 'Open Sans', sans-serif;
+    display: flex;
+    margin-top: 2%;
+    align-items: center;
+    justify-content: center;
+    background-color:#23272A;
+}
+#container{
+    border: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1vh;
+    background-color: #99AAB5;
+    padding: 1rem;
+    margin: 1rem;
+    align-items: flex-start;
+}
+
+
+#header {
+    display: flex;
+    justify-content: space-between;
+}
+h5 {
+    margin-top: 0.5vh;
+    margin-bottom: 0.5vh;
+}
+button, input, select{
+    text-align: center;
+    font-size: 0.8rem;
+    background-color: #3d4044;
+    font-weight: bold;
+    color: rgb(231, 230, 230);
+    height: 4vh;
+    width: 9vw;
+    border-radius: 3rem;
+
+    border-color: rgb(231, 230, 230);
+}
+
+
+.time-format{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+}
+
+
+code {
+    background-color: #23272A;
+    color: rgb(231, 230, 230);
+}
