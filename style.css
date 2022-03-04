@@ -37,7 +37,7 @@ button, input, select{
     font-weight: bold;
     color: rgb(231, 230, 230);
     height: 4vh;
-    width: 9vw;
+    width: 25%;
     border-radius: 3rem;
 
     border-color: rgb(231, 230, 230);
