@@ -21,6 +21,7 @@ body {
 #header {
     display: flex;
     justify-content: space-between;
+    gap: 4.5vw;
 }
 h5 {
     margin-top: 0.5vh;
