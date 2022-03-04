@@ -35,7 +35,8 @@ button, input, select{
     background-color: #3d4044;
     font-weight: bold;
     color: rgb(231, 230, 230);
-    height: 4vh;
+    padding: 0.5rem;
+    height: 150%;
     width: 25%;
     border-radius: 3rem;
 
