@@ -25,17 +25,13 @@ for (let i = 0; i < inputFields.length; i++) {
 let unix = 0
 setUnix()
 function setUnix() {
-    const date = setDate.value
-    const time = setTime.value
     const fromGMT = (setTimeZone.options[setTimeZone.selectedIndex].text).substring(1,10)
-    const ymd = date.split('-')
-    const hhmm = time.split(':')
-    const thisDate = new Date(Number(ymd[0]) , Number(ymd[1]) - 1, Number(ymd[2]), hhmm[0], hhmm[1])
-    unix = Math.floor(thisDate.getTime()/ 1000)
-    const op = fromGMT[3]
+    const yearMonthDay = (setDate.value).split('-')
+    const hoursMinutes = (setTime.value).split(':')
     const hourChange = Number(fromGMT.slice(4,6))
     const minChange = Number(fromGMT.slice(7,9))
-    if (op === '-') {
+    unix = Math.floor((new Date(Number(yearMonthDay[0]) , Number(yearMonthDay[1]) - 1, Number(yearMonthDay[2]), hoursMinutes[0], hoursMinutes[1])).getTime()/ 1000)
+    if (fromGMT[3] === '-') {
         unix -= hourChange * 60 * 60
         unix -= minChange * 60
     } else {
