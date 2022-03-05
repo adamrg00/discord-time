@@ -28,8 +28,8 @@ let unix = 0
 setUnix()
 function setUnix() {
     const fromGMT = (setTimeZone.options[setTimeZone.selectedIndex].text).substring(1,10)
-    const yearMonthDay = (setDate.value).split('-')
-    const hoursMinutes = (setTime.value).split(':')
+    let yearMonthDay = (setDate.value).split('-')
+    let hoursMinutes = (setTime.value).split(':')
     const hourChange = Number(fromGMT.slice(4,6))
     const minChange = Number(fromGMT.slice(7,9))
     unix = Math.floor((new Date(Number(yearMonthDay[0]) , Number(yearMonthDay[1]) - 1, Number(yearMonthDay[2]), hoursMinutes[0], hoursMinutes[1])).getTime()/ 1000)
@@ -40,14 +40,28 @@ function setUnix() {
         unix += hourChange * 60 * 60
         unix += minChange * 60
     }
+    const adjustedForTimezone = new Date(unix *1000)
+    console.log(adjustedForTimezone)
+    let minutes = (adjustedForTimezone.getMinutes()).toString()
+    let hours = (adjustedForTimezone.getHours()).toString()
+    let day = (adjustedForTimezone.getDate()).toString()
+    let month = (adjustedForTimezone.getMonth() + 1).toString()
+    let year = (adjustedForTimezone.getFullYear()).toString()
+    console.log(hours)
+    hoursMinutes[0] = hours.length === 1?'0' + hours:hours
+    console.log(hoursMinutes[0])
+    hoursMinutes[1] = minutes.length === 1?'0' + minutes:minutes
+    yearMonthDay[0] = year
+    yearMonthDay[1] = month.length === 1? '0'+month:month
+    yearMonthDay[2] = day.length === 1? '0'+day:day
     const strButtons = document.getElementsByClassName('time-code')
     for(let i = 0; i < strButtons.length; i++) {
         txt = strButtons[i].id
         strButtons[i].id = (txt.slice(0,3) + unix.toString() + txt.slice(txt.length - 3, txt.length))
     }
     const timeCodes = document.getElementsByClassName('time-code')
-    const shortTime = (Number(hoursMinutes[0]) > 12)? (Number(hoursMinutes[0]) - 12).toString() + ':' + hoursMinutes[1] + ' PM' : setTime.value + ' AM';
-    const longTime = (Number(hoursMinutes[0]) > 12)? ((Number(hoursMinutes[0]) - 12).toString() + ':' + hoursMinutes[1] + ':00' + 'PM') : setTime.value + ':00 ' +' AM';
+    const shortTime = (Number(hoursMinutes[0]) > 12)? (Number(hoursMinutes[0]) - 12).toString() + ':' + hoursMinutes[1] + ' PM' : hoursMinutes[0] + ':' + hoursMinutes[1] + ' AM';
+    const longTime = (Number(hoursMinutes[0]) > 12)? ((Number(hoursMinutes[0]) - 12).toString() + ':' + hoursMinutes[1] + ':00' + 'PM') : hoursMinutes[0] + ':' + hoursMinutes[1] + ':00 ' +' AM';
     const shortDate =  yearMonthDay[1] + '/' + yearMonthDay[2] + '/' + yearMonthDay[0]
     const longDate = yearMonthDay[2] + ' ' + monthNames[Number(yearMonthDay[1] - 1)] + ' ' + yearMonthDay[0]
     const shortDateTime = longDate + ' ' + shortTime
