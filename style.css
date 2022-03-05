@@ -1,7 +1,7 @@
 body {
     font-family: 'Helvetica','Ariel', 'Open Sans', sans-serif;
     display: flex;
-    margin-top: 2%;
+    margin-top: 1rem;
     align-items: center;
     justify-content: center;
     background-color:#23272A;
@@ -58,7 +58,11 @@ button, input, select{
     border-color: rgb(231, 230, 230);
 }
 
-
+h4 {
+    margin-top: 150vh;
+    margin-right: 75vw;
+    position: absolute;
+}
 .time-format{
     display: inline-flex;
     justify-content: space-between;
@@ -66,3 +70,9 @@ button, input, select{
     gap: 1rem;
 }
 
+a {
+    text-decoration: none;
+}
+a:visited, a:active {
+color: rgb(15, 4, 19);
+}
