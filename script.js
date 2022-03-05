@@ -41,15 +41,12 @@ function setUnix() {
         unix += minChange * 60
     }
     const adjustedForTimezone = new Date(unix *1000)
-    console.log(adjustedForTimezone)
     let minutes = (adjustedForTimezone.getMinutes()).toString()
     let hours = (adjustedForTimezone.getHours()).toString()
     let day = (adjustedForTimezone.getDate()).toString()
     let month = (adjustedForTimezone.getMonth() + 1).toString()
     let year = (adjustedForTimezone.getFullYear()).toString()
-    console.log(hours)
     hoursMinutes[0] = hours.length === 1?'0' + hours:hours
-    console.log(hoursMinutes[0])
     hoursMinutes[1] = minutes.length === 1?'0' + minutes:minutes
     yearMonthDay[0] = year
     yearMonthDay[1] = month.length === 1? '0'+month:month
