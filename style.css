@@ -59,9 +59,8 @@ button, input, select{
 }
 
 h4 {
-    margin-top: 150vh;
-    margin-right: 75vw;
     position: absolute;
+    bottom: 0.1rem;
 }
 .time-format{
     display: inline-flex;
