@@ -56,7 +56,7 @@ function setUnix() {
     const relativeTime = relativeString(currentDate, unix)
     // const longTime = 
     for(let i = 0; i < timeCodes.length; i++) {
-        code = timeCodes[i].id
+        code = timeCodes[i].title
         switch (code) {
             case ':t':
                 timeCodes[i].textContent = shortTime
