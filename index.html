@@ -14,6 +14,7 @@
     <div id = 'container'>
         <h1> Create a Discord Timestamp</h1>
         <p>A lightweight website created to allow for ease of use with Discord's built in Unix time-stamping feature to it's full potential.</p>
+        <p>Use the inputs below to select any Date, Time and Timezone (local by default)</p>
         <div id = 'header'>
             <input type="date" name="date-input" id="date-select" class = 'input' >
             <input type="time" name="time-input" id="time-select" class = 'input'>
@@ -102,35 +103,28 @@
                 <option value="Pacific/Tongatapu">(GMT+13:00) Nuku'alofa</option>
             </select>
         </div>
-        <h5>Click button to copy to clipboard</h5>
+        <h5>Click button below to copy the code to clipboard; you can then paste into discord to achieve the text seen correct for all timezones</h5>
         <div id = 'body'>
             <div class = 'time-format'>
-                <h3 class = 'time-format-text'>Short time, e.g. <code>&nbsp;11:52 PM&nbsp;</code></h3>
-                <button class = 'time-format-button'>&lt;t::t&gt;</button>
+                <code class = 'time-code', id = '&lt;t::t&gt;'>&nbsp;11:52 PM&nbsp;</code>
             </div>
             <div class = 'time-format'>
-                <h3 class = 'time-format-text'>Long Time, e.g. <code>&nbsp;11:52:30 PM&nbsp;</code></h3>
-                <button class = 'time-format-button'>&lt;t::T&gt;</button>
+                <code class = 'time-code', id = '&lt;t::T&gt;'>&nbsp;11:52:30 PM&nbsp;</code>
             </div>
             <div class = 'time-format'>
-                <h3 class = 'time-format-text'>Short Date, e.g. <code>&nbsp;14/11/2022&nbsp;</code></h3>
-                <button class = 'time-format-button'>&lt;t::d&gt;</button>
+                <code class = 'time-code', id = '&lt;t::d&gt;'>&nbsp;14/11/2022&nbsp;</code>
             </div>
             <div class = 'time-format'>
-                <h3 class = 'time-format-text'>Long Date, e.g. <code>&nbsp;14 Nov 2022&nbsp;</code></h3>
-                <button class = 'time-format-button'>&lt;t::D&gt;</button>
+               <code class = 'time-code', id = '&lt;t::D&gt;'>&nbsp;14 Nov 2022&nbsp;</code>
             </div>
             <div class = 'time-format'>
-                <h3 class = 'time-format-text'>Short Date/Time, e.g. <code>&nbsp;14 Nov 2022 11:52pm&nbsp;</code></h3>
-                <button class = 'time-format-button'>&lt;t::f&gt;</button>
+                <code class = 'time-code', id = '&lt;t::f&gt;'>&nbsp;14 Nov 2022 11:52pm&nbsp;</code>
             </div>
             <div class = 'time-format'>
-                <h3 class = 'time-format-text'>Long Date/Time, e.g. <code>&nbsp;Wednesday, November, 14, 2022, 11:52pm&nbsp;</code></h3>
-                <button class = 'time-format-button'>&lt;t::F&gt;</button>
+                <code class = 'time-code', id = '&lt;t::F&gt;'>&nbsp;Wednesday, November, 14, 2022, 11:52pm&nbsp;</code>
             </div>
             <div class = 'time-format'>
-                <h3 class = 'time-format-text'>Relative Time, e.g. <code>&nbsp;In 15 Minutes&nbsp;</code> or <code>&nbsp;3 Years ago&nbsp;</code></h3>
-                <button class = 'time-format-button'>&lt;t::R&gt;</button>
+                <code class = 'time-code', id = '&lt;t::R&gt;'>&nbsp;In 15 Minutes&nbsp;</code>
             </div>
         </div>
         <div id = 'footer'>

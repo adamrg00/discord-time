@@ -1,5 +1,5 @@
 body {
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Helvetica','Ariel', 'Open Sans', sans-serif;
     display: flex;
     margin-top: 2%;
     align-items: center;
@@ -17,22 +17,37 @@ body {
     border-radius: 1rem;
 
 }
-
-
+h1, p, p5 {
+    margin: auto;
+}
+code {
+    padding: 0.5rem;
+    margin-top: 0.5rem;
+    font-weight: bold;
+    font-size: 1rem;
+    border-radius: 0.6rem;
+    background-color: #23272A;
+    color: rgb(231, 230, 230);
+}
+code:hover {
+    background-color: #6c757c;
+    cursor: pointer;
+}
 #header {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
+    gap: 0.5vw;
 }
 h5 {
     font-weight: bold;
-    margin-left: auto;
     margin-top: 0.5vh;
     margin-bottom: 0.5vh;
 }
 button, input, select{
+    margin-top: 0.5rem;
     text-align: center;
     font-size: 0.8rem;
-    background-color: #3d4044;
+    background-color: #23272A;
     font-weight: bold;
     color: rgb(231, 230, 230);
     padding: 0.5rem;
@@ -45,14 +60,9 @@ button, input, select{
 
 
 .time-format{
-    display: flex;
+    display: inline-flex;
     justify-content: space-between;
     align-items: center;
     gap: 1rem;
 }
 
-
-code {
-    background-color: #23272A;
-    color: rgb(231, 230, 230);
-}
