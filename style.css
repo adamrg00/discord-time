@@ -90,6 +90,7 @@ color: rgb(15, 4, 19);
 #timezone-select {
     align-self: center;
     width: fit-content;
+    max-width: 60vw;
     height: 12.8vh;
     font-size:1vw;
 }
@@ -98,7 +99,7 @@ color: rgb(15, 4, 19);
     align-self: center;
 }
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 650px) {
     #time-select {
         font-size:4vw;
     }
