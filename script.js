@@ -32,32 +32,17 @@ function setUnix() {
     const minColDiff = fromGMT.substring(7,9)
     const diffFromLocal = Number(hourColDiff) * 60 + Number(minColDiff)
     let tzStr = localTimeZone.toString()
-    console.log(tzStr)
-    console.log(diffFromLocal)
     let diff
     const op = fromGMT[3] == '+'?'-':'+'
     if (tzStr[0] === '-') {
-        if (op == '-') {
-            diff = Number(diffFromLocal) - Number(tzStr.substring(1))
-            console.log(diff)
-        } else {
-            diff = -Number(tzStr.substring(1)) - Number(diffFromLocal)
-            console.log(diff)
-        }
+        diff = (op == '-')? (Number(diffFromLocal) - Number(tzStr.substring(1))) : (-Number(tzStr.substring(1)) - Number(diffFromLocal))
+    } else {
+        diff = (op == '-')? (Number(tzStr) + Number(diffFromLocal)) : Number(tzStr) - Number(diffFromLocal)
     }
-    // ADD FOR WHEN LOCAL TZ IS LESS THAN THINGY, CHANGE BUTTONS TO DO CORRECT
     let yearMonthDay = (setDate.value).split('-')
     let hoursMinutes = (setTime.value).split(':')
-    const hourChange = Number(fromGMT.slice(4,6))
-    const minChange = Number(fromGMT.slice(7,9))
     unix = Math.floor((new Date(Number(yearMonthDay[0]) , Number(yearMonthDay[1]) - 1, Number(yearMonthDay[2]), hoursMinutes[0], hoursMinutes[1])).getTime()/ 1000)
-    if (fromGMT[3] === '-') {
-        unix -= hourChange * 60 * 60
-        unix -= minChange * 60
-    } else {
-        unix += hourChange * 60 * 60
-        unix += minChange * 60
-    }
+    unix += diff * 60
     const adjustedForTimezone = new Date(unix *1000)
     let minutes = (adjustedForTimezone.getMinutes()).toString()
     let hours = (adjustedForTimezone.getHours()).toString()
@@ -125,7 +110,7 @@ function copyClipboard(e) {
 function relativeString(curr, test) {
     currStamp = curr.getTime() / 1000
     let secondDifference = Math.round(currStamp - test)
-    if (secondDifference > 5) {// PAST 
+    if (secondDifference > 59) {// PAST 
         if (secondDifference < 60) { // less than a minute
             return (secondDifference).toString() + ' Seconds Ago'
         } else if (secondDifference < 3600) { // less than an hour
@@ -141,7 +126,7 @@ function relativeString(curr, test) {
         } else {return (Math.round(secondDifference / 31536000).toString() + " Years Ago")}
     } else if (secondDifference < 5) {
         secondDifference = Math.abs(secondDifference)
-        if (secondDifference < 60) { // less than a minute
+        if (secondDifference < 59) { // less than a minute
             return 'In ' + (secondDifference).toString() + ' Seconds'
         } else if (secondDifference < 3600) { // less than an hour
             return 'In ' + (Math.round(secondDifference / 60).toString() + ' Minutes')

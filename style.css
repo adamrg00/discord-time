@@ -15,6 +15,7 @@ body {
     padding: 1rem;
     margin: 1rem;
     border-radius: 1rem;
+    min-height: 100%;
 
 }
 h1, p, p5 {
@@ -59,6 +60,7 @@ button, input, select{
 }
 
 h4 {
+    font-size-adjust: none;
     position: absolute;
     bottom: 0.1rem;
 }
