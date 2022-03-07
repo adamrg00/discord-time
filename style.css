@@ -35,6 +35,7 @@ code:hover {
     cursor: pointer;
 }
 #header {
+    margin:3rem;
     display: flex;
     justify-content: center;
     gap: 0.5vw;
@@ -62,7 +63,8 @@ button, input, select{
 h4 {
     font-size-adjust: none;
     position: absolute;
-    bottom: 0.1rem;
+    bottom: 0;
+    margin-left: auto;
 }
 .time-format{
     display: inline-flex;
@@ -99,7 +101,7 @@ color: rgb(15, 4, 19);
     align-self: center;
 }
 
-@media screen and (max-width: 650px) {
+@media screen and (max-width: 750px) {
     #time-select {
         font-size:4vw;
     }
