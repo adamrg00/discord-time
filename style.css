@@ -4,14 +4,14 @@ body {
     margin-top: 1rem;
     align-items: center;
     justify-content: center;
-    background-color:#23272A;
+    background-color:#ffffff;
 }
 #container{
     border: 2rem;
     display: flex;
     flex-direction: column;
     gap: 1vh;
-    background-color: #99AAB5;
+    background-color: #d3d0d0;
     padding: 1rem;
     margin: 1rem;
     border-radius: 1rem;
@@ -38,6 +38,7 @@ code:hover {
     display: flex;
     justify-content: center;
     gap: 0.5vw;
+    flex-wrap: wrap;
 }
 h5 {
     font-weight: bold;
@@ -54,7 +55,6 @@ button, input, select{
     padding: 0.5rem;
     height: 150%;
     width: 25%;
-    border-radius: 3rem;
 
     border-color: rgb(231, 230, 230);
 }
@@ -76,4 +76,36 @@ a {
 }
 a:visited, a:active {
 color: rgb(15, 4, 19);
+}
+
+#date-select, #time-select {
+    height: 10vh;
+    width: fit-content;
+    font-size: 2vw;
+    word-break: break-all;
+}
+#date-select {
+    font-size: 1.6vw;
+}
+#timezone-select {
+    align-self: center;
+    width: fit-content;
+    height: 12.8vh;
+    font-size:1vw;
+}
+
+#body, h5 {
+    align-self: center;
+}
+
+@media screen and (max-width: 800px) {
+    #time-select {
+        font-size:4vw;
+    }
+    #date-select {
+        font-size: 3.4vw;
+    }
+    #timezone-select {
+        font-size: 2.6vw;
+    }
 }
