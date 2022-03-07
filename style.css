@@ -4,7 +4,7 @@ body {
     margin-top: 1rem;
     align-items: center;
     justify-content: center;
-    background-color:#ffffff;
+    background-color:#faf8f8;
 }
 #container{
     border: 2rem;
@@ -30,7 +30,7 @@ code {
     background-color: #23272A;
     color: rgb(231, 230, 230);
 }
-code:hover {
+code:hover, .input:hover {
     background-color: #6c757c;
     cursor: pointer;
 }
@@ -65,11 +65,10 @@ h4 {
     position: absolute;
     bottom: 0;
     margin-left: auto;
+    font-size: 1vh;
 }
 .time-format{
     display: inline-flex;
-    justify-content: space-between;
-    align-items: center;
     gap: 1rem;
 }
 
@@ -81,34 +80,84 @@ color: rgb(15, 4, 19);
 }
 
 #date-select, #time-select {
-    height: 10vh;
-    width: fit-content;
     font-size: 2vw;
     word-break: break-all;
 }
 #date-select {
     font-size: 1.6vw;
 }
+
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+    display: none;
+    -webkit-appearance: none;
+}
+input[type="time"]::-webkit-calendar-picker-indicator {
+    display: none;
+    -webkit-appearance: none;
+}
+#date-select, #time-select, #timezone-select {
+    border-radius: 0.4rem;
+    height: 10vh;
+    width: fit-content;
+    padding: 0;
+    margin: 0;
+    border: 0;
+}
 #timezone-select {
     align-self: center;
-    width: fit-content;
     max-width: 60vw;
-    height: 12.8vh;
-    font-size:1vw;
+    padding-left: 2vw;
+    padding-right: 2vw;
+    font-size: 1vw;
+}
+#body, h5 {
+    font-size: 1.2vw;
+    align-self: center;
+}
+#time-select {
+    min-width: 9vw;
+    padding-left: 1vw;
+    padding-right: 1vw;
 }
 
-#body, h5 {
-    align-self: center;
+
+#body  {
+    width: 100%;
+    flex-wrap: wrap;
+}
+
+.time-code {
+    font-size: 1vw;
+    padding-top: 1vh;
+    width: 10vw;
+    min-height: 2.5vw;
+    height: fit-content;
+    text-align: center;
+    word-wrap: break-word;
 }
 
 @media screen and (max-width: 750px) {
     #time-select {
-        font-size:4vw;
+        font-size: 4vw;
     }
+
     #date-select {
         font-size: 3.4vw;
     }
+
     #timezone-select {
         font-size: 2.6vw;
     }
+
+    .time-code {
+        font-size: 2vw;
+    }
+    h5 {
+        font-size: 2vw;
+    }
+}
+
+h5 {
+    padding-top: 5vh;
 }
