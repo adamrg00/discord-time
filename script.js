@@ -9,8 +9,8 @@ const monthNames = ['Jan', 'Feb', 'Mar', "Apr", 'May', "Jun", "Jul", "Aug", "Sep
 const monthNamesLong = ['January', 'February', 'March', 'April', 'May', 'June', "July", "August", 'September', 'October', "November", "December"]
 const days = ['Sunday', 'Monday', "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
 setDate.valueAsDate = currentDate
-setTime.value = currentDate.toISOString().substring(11,16)
-
+setTime.value = currentDate.toString().substring(16,21)
+const localTimeZone = currentDate.getTimezoneOffset()
 timeZoneOffset = timeZoneOffset.slice(0, 6) + ':' + timeZoneOffset.slice(6,8)
 
 for (let i  = 0; i < (setTimeZone.options).length; i++) {
@@ -28,6 +28,24 @@ let unix = 0
 setUnix()
 function setUnix() {
     const fromGMT = (setTimeZone.options[setTimeZone.selectedIndex].text).substring(1,10)
+    const hourColDiff = fromGMT.substring(4,6)
+    const minColDiff = fromGMT.substring(7,9)
+    const diffFromLocal = Number(hourColDiff) * 60 + Number(minColDiff)
+    let tzStr = localTimeZone.toString()
+    console.log(tzStr)
+    console.log(diffFromLocal)
+    let diff
+    const op = fromGMT[3] == '+'?'-':'+'
+    if (tzStr[0] === '-') {
+        if (op == '-') {
+            diff = Number(diffFromLocal) - Number(tzStr.substring(1))
+            console.log(diff)
+        } else {
+            diff = -Number(tzStr.substring(1)) - Number(diffFromLocal)
+            console.log(diff)
+        }
+    }
+    // ADD FOR WHEN LOCAL TZ IS LESS THAN THINGY, CHANGE BUTTONS TO DO CORRECT
     let yearMonthDay = (setDate.value).split('-')
     let hoursMinutes = (setTime.value).split(':')
     const hourChange = Number(fromGMT.slice(4,6))
