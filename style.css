@@ -87,15 +87,6 @@ color: rgb(15, 4, 19);
     font-size: 1.6vw;
 }
 
-
-input[type="date"]::-webkit-calendar-picker-indicator {
-    display: none;
-    -webkit-appearance: none;
-}
-input[type="time"]::-webkit-calendar-picker-indicator {
-    display: none;
-    -webkit-appearance: none;
-}
 #date-select, #time-select, #timezone-select {
     border-radius: 0.4rem;
     height: 10vh;
@@ -115,7 +106,7 @@ input[type="time"]::-webkit-calendar-picker-indicator {
     font-size: 1.2vw;
     align-self: center;
 }
-#time-select {
+#time-select, #date-select {
     min-width: 9vw;
     padding-left: 1vw;
     padding-right: 1vw;
@@ -160,4 +151,12 @@ input[type="time"]::-webkit-calendar-picker-indicator {
 
 h5 {
     padding-top: 5vh;
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+    filter: invert(1);
+}
+
+input[type="time"]::-webkit-calendar-picker-indicator {
+    filter: invert(2);
 }
